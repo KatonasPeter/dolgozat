@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Stack Fejlesztők</title>
+</head>
+<body>
+    <h1>Full Stack Fejlesztők Keresése</h1>
+    
+    <label for="frontend">Front-end fejlesztők (név1;név2;...):</label><br>
+    <input type="text" id="frontend" name="frontend" size="50"><br><br>
+    
+    <label for="backend">Back-end fejlesztők (név1;név2;...):</label><br>
+    <input type="text" id="backend" name="backend" size="50"><br><br>
+    
+    <button onclick="findFullStackDevelopers()">Keresés</button>
+    
+    <h2>Eredmény:</h2>
+    <div id="result"></div>
+    
+    <script>
+        function fullStack(frontEnd, backEnd) {
+            const frontEndDevelopers = frontEnd.split(';');
+            const backEndDevelopers = backEnd.split(';');
+            const fullStackDevelopers = frontEndDevelopers.filter(name => backEndDevelopers.includes(name));
+            return fullStackDevelopers;
+        }
+
+        function findFullStackDevelopers() {
+            const frontEnd = document.getElementById('frontend').value;
+            const backEnd = document.getElementById('backend').value;
+            const result = fullStack(frontEnd, backEnd);
+            document.getElementById('result').textContent = `Full Stack fejlesztők: ${result.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
