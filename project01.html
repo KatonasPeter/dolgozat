@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div Tagek</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+        document.querySelector('div').innerText = 'Első';
+        document.querySelectorAll('div')[4].innerText = 'Utolsó';
+        document.querySelectorAll('div')[2].innerText = 'Harmadik';
+        var divs = document.querySelectorAll('div');
+        for (var i = 0; i < divs.length; i++) {
+            if (divs[i].innerText === '') {
+                divs[i].innerText = 'Index: ' + i;
+            }
+        }
+    </script>
+</body>
+</html>
