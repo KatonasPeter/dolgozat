@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ötöslottó Generátor</title>
+</head>
+<body>
+    <h1>Ötöslottó Szám Generátor</h1>
+    <button onclick="generateLottoNumbers()">Számok Generálása</button>
+    <h2>Eredmény:</h2>
+    <div id="result"></div>
+
+    <script>
+        function otoslotto() {
+            const numbers = new Set();
+
+            while (numbers.size < 5) {
+                const randomNumber = Math.floor(Math.random() * 90) + 1;
+                numbers.add(randomNumber);
+            }
+
+            return Array.from(numbers).sort((a, b) => a - b);
+        }
+
+        function generateLottoNumbers() {
+            const result = otoslotto();
+            document.getElementById('result').textContent = `Generált számok: ${result.join(', ')}`;
+        }
+    </script>
+</body>
+</html>
